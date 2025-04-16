@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rickmorty-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rickmorty-api
+  template:
+    metadata:
+      labels:
+        app: rickmorty-api
+    spec:
+      containers:
+      - name: rickmorty-api
+        image: yakiradela/rickmorty-api:latest
+        ports:
+        - containerPort: 8000
